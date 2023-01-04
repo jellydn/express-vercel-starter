@@ -8,6 +8,17 @@
 
 > Express.js v5 starter is a boilerplate for building and deploying Express.js applications to Vercel.
 
+## Built with
+
+- [cors](https://www.npmjs.com/package/cors) CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+- [express](https://www.npmjs.com/package/express) ^5.0.0-beta.1 Fast, unopinionated, minimalist web framework for Node.js.
+- [helmet](https://www.npmjs.com/package/helmet) Helmet helps you secure your Express apps by setting various HTTP headers.
+- [jsend](https://www.npmjs.com/package/jsend) - Utilities and middleware to assist with sending and handling jsend responses.
+- [pino](https://www.npmjs.com/package/pino) Very low overhead Node.js logger.
+- [rome](https://www.npmjs.com/package/rome) Rome is a formatter, linter, bundler, and more for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
+- [tsup](https://www.npmjs.com/package/tsup) Bundle your TypeScript library with no config, powered by esbuild.
+- [tsx](https://www.npmjs.com/package/tsx) TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM files
+
 ## Install
 
 ```sh
