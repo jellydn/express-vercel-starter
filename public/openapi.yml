@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: ExpressJs API Example
+  description: A simple API
+  contact:
+    name: Dung Huynh
+    email: dung@productsway.com
+    url: https://productsway.com
+servers:
+  - url: http://localhost:3000
+paths:
+  /api:
+    get:
+      summary: Get some data
+      responses:
+        200:
+          description: Data retrieved successfully
+  /api/todo:
+    post:
+      summary: Create a new todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+              properties:
+                text:
+                  type: string
+      responses:
+        201:
+          description: Todo created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Created the todo.
+                  createdTodo:
+                    $ref: '#/components/schemas/Todo'
+    get:
+      summary: Get all todos
+      responses:
+        200:
+          description: All todos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  todos:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Todo'
+  /api/todo/{id}:
+    patch:
+      summary: Update a todo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+              properties:
+                text:
+                  type: string
+      responses:
+        200:
+          description: Todo updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Updated!
+                  updatedTodo:
+                    $ref: '#/components/schemas/Todo'
+    put:
+      summary: Update a todo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+              properties:
+                text:
+                  type: string
+      responses:
+        200:
+          description: Todo updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Updated!
+                  updatedTodo:
+                    $ref: '#/components/schemas/Todo'
+    delete:
+      summary: Delete a todo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Todo deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    Todo:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        completed:
+          type: boolean
+      required:
+        - id
+        - text
+        - completed
