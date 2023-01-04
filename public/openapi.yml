@@ -8,7 +8,7 @@ info:
     email: dung@productsway.com
     url: https://productsway.com
 servers:
-  - url: http://localhost:3000
+  - url: /
 paths:
   /api:
     get:

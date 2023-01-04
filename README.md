@@ -10,7 +10,7 @@
 
 ## 🏠 [Homepage](https://express-starter.productsway.com/api)
 
-### ✨ [Demo](https://express-starter.productsway.com/openapi.yml)
+### ✨ [Demo](https://express-starter.productsway.com/api/todo)
 
 ## Built with
 
