@@ -8,6 +8,10 @@
 
 > Express.js v5 starter is a boilerplate for building and deploying Express.js applications to Vercel.
 
+## 🏠 [Homepage](https://express-starter.productsway.com/api)
+
+### ✨ [Demo](https://express-starter.productsway.com/openapi.yml)
+
 ## Built with
 
 - [cors](https://www.npmjs.com/package/cors) CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
@@ -43,7 +47,7 @@ yarn dev
 
 ## Deployment
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjellydn%2Fvercel-express-demo)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjellydn%2Fvercel-express-starter)
 
 ### Prerequisites
 
