@@ -14,7 +14,7 @@
   "devDependencies": {
     "@types/cors": "2.8.14",
     "@types/express": "4.17.17",
-    "@biomejs/biome": "1.0.0",
+    "@biomejs/biome": "1.2.2",
     "tsup": "7.2.0",
     "tsx": "3.12.10",
     "typescript": "5.2.2"
