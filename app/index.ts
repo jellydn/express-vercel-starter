@@ -1,13 +1,13 @@
-import express from "express";
-import helmet from "helmet";
-import cors from "cors";
-import jsend from "jsend";
 import { join } from "path";
 import bodyParser from "body-parser";
+import cors from "cors";
+import express from "express";
+import helmet from "helmet";
+import jsend from "jsend";
 
 import logger from "../logger";
-import todoRoutes from "./routes/todo";
 import errorHandler from "../middlewares/error-handler";
+import todoRoutes from "./routes/todo";
 
 const app = express();
 const isVercel = process.env.DEPLOYMENT_ENV === "vercel";
@@ -29,18 +29,18 @@ const options = {
 	index: false,
 	maxAge: "1d",
 	redirect: false,
-	setHeaders(res, _path, _stat) {
-		res.set("x-static-timestamp", Date.now());
+	setHeaders(res: express.Response) {
+		res.set("x-static-timestamp", Date.now().toString());
 	},
 };
 
 app.use("/static", express.static(join(__dirname, "../public"), options));
 
-app.get("/", (_req, res) => {
+app.get("/", (_req, res: express.Response) => {
 	res.send("Open Swagger UI at http://localhost:3000/static/index.html");
 });
 
-app.get("/api", (_req, res) => {
+app.get("/api", (_req, res: express.Response) => {
 	res.setHeader("Content-Type", "application/json");
 	res.json({ name: "Hello world" });
 });

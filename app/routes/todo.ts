@@ -1,19 +1,42 @@
-import { Router } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import { Todo } from "../../models/todo";
+
+// Define interfaces for request bodies and parameters
+interface TodoBody {
+	text: string;
+}
+
+interface TodoParams {
+	id: string;
+}
 
 const router = Router();
 
 let todos: Todo[] = [];
 
-router.post("/", (req, res, _next) => {
-	const text = (req.body as { text: string }).text;
-	const newTodo = new Todo(Math.random().toString(), text);
-	todos.push(newTodo);
+router.post(
+	"/",
+	(
+		req: Request<
+			unknown,
+			{
+				message: string;
+				createdTodo: Todo;
+			},
+			TodoBody
+		>,
+		res: Response,
+		_next: NextFunction,
+	) => {
+		const { text } = req.body;
+		const newTodo = new Todo(Math.random().toString(), text);
+		todos.push(newTodo);
 
-	res
-		.status(201)
-		.jsend.success({ message: "Created the todo.", createdTodo: newTodo });
-});
+		res
+			.status(201)
+			.jsend.success({ message: "Created the todo.", createdTodo: newTodo });
+	},
+);
 
 router.get("/", (_req, res, _next) => {
 	res.jsend.success({ todos: todos });
