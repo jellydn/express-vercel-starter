@@ -19,14 +19,14 @@
 - [helmet](https://www.npmjs.com/package/helmet) Helmet helps you secure your Express apps by setting various HTTP headers.
 - [jsend](https://www.npmjs.com/package/jsend) - Utilities and middleware to assist with sending and handling jsend responses.
 - [pino](https://www.npmjs.com/package/pino) Very low overhead Node.js logger.
-- [rome](https://www.npmjs.com/package/rome) Rome is a formatter, linter, bundler, and more for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
+- [biome](https://biomejs.dev/internals/language-support/) Biome is a formatter, linter, bundler, and more for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.
 - [tsup](https://www.npmjs.com/package/tsup) Bundle your TypeScript library with no config, powered by esbuild.
 - [tsx](https://www.npmjs.com/package/tsx) TypeScript Execute (tsx): Node.js enhanced with esbuild to run TypeScript & ESM files
 
 ## Install
 
 ```sh
-yarn install
+bun install
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ git clone https://github.com/jellydn/express-vercel-starter
 Create .env file from .env.example then run below command
 
 ```sh
-yarn dev
+bun run dev
 ```
 
 ## Deployment
