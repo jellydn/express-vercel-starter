@@ -12,9 +12,10 @@
     "vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.2.2",
     "@types/cors": "2.8.14",
     "@types/express": "4.17.18",
-    "@biomejs/biome": "1.2.2",
+    "@types/jsend": "^1.0.30",
     "tsup": "7.2.0",
     "tsx": "3.13.0",
     "typescript": "5.2.2"
