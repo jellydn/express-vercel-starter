@@ -1,30 +1,31 @@
 {
-  "name": "express-vercel-starter",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "dev": "tsx watch app/index.ts",
-    "lint": "biome check app",
-    "format": "biome format app --write",
-    "start": "tsx app/index.ts",
-    "build": "tsup app --clean --format cjs,esm --env.NODE_ENV production",
-    "vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.2.2",
-    "@types/cors": "2.8.14",
-    "@types/express": "4.17.18",
-    "@types/jsend": "^1.0.30",
-    "tsup": "7.2.0",
-    "tsx": "3.13.0",
-    "typescript": "5.2.2"
-  },
-  "dependencies": {
-    "cors": "2.8.5",
-    "express": "5.0.0-beta.1",
-    "helmet": "7.0.0",
-    "jsend": "1.1.0",
-    "pino": "8.15.4"
-  }
+	"name": "express-vercel-starter",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsup app --clean --format cjs,esm --env.NODE_ENV production",
+		"dev": "tsx watch app/index.ts",
+		"format": "biome format app --write",
+		"lint": "biome check app",
+		"start": "tsx app/index.ts",
+		"typecheck": "tsc --noEmit",
+		"vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
+	},
+	"dependencies": {
+		"cors": "2.8.5",
+		"express": "5.0.0-beta.1",
+		"helmet": "7.0.0",
+		"jsend": "1.1.0",
+		"pino": "8.15.4"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.2.2",
+		"@types/cors": "2.8.14",
+		"@types/express": "4.17.18",
+		"@types/jsend": "^1.0.30",
+		"tsup": "7.2.0",
+		"tsx": "3.13.0",
+		"typescript": "5.2.2"
+	}
 }
