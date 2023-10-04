@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx watch app/index.ts",
-    "lint": "npx rome check app --apply-suggested",
-    "format": "npx rome format app --write",
+    "lint": "biome check app",
+    "format": "biome format app --write",
     "start": "tsx app/index.ts",
     "build": "tsup app --clean --format cjs,esm --env.NODE_ENV production",
     "vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
