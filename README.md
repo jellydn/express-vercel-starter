@@ -45,6 +45,20 @@ Create .env file from .env.example then run below command
 bun run dev
 ```
 
+#### Pre-commit
+
+This project uses [pre-commit](https://pre-commit.com) to run pre-commit hooks. The pre-commit hooks will run the linter and formatter before committing.
+
+```sh
+pre-commit install
+```
+
+### Build
+
+```sh
+bun run build
+```
+
 ## Deployment
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjellydn%2Fvercel-express-starter)

@@ -1,19 +1,24 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css"
+    />
     <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>Hello Todo API</title>
   </head>
   <body>
     <div id="swagger-ui"></div>
     <script>
       const ui = SwaggerUIBundle({
-        url: './openapi.yml',
-        dom_id: '#swagger-ui',
+        url: "./openapi.yml",
+        dom_id: "#swagger-ui",
       });
     </script>
   </body>

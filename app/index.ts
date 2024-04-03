@@ -1,4 +1,4 @@
-import { join } from "path";
+import { join } from "node:path";
 import bodyParser from "body-parser";
 import cors from "cors";
 import express from "express";

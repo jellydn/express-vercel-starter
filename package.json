@@ -5,9 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "tsup app --clean --format cjs,esm --env.NODE_ENV production",
+		"check": "biome check --apply .",
 		"dev": "tsx watch app/index.ts",
-		"format": "biome format app --write",
-		"lint": "biome check app",
+		"format": "biome format . --write",
+		"lint": "biome lint .",
 		"start": "tsx app/index.ts",
 		"typecheck": "tsc --noEmit",
 		"vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
@@ -20,7 +21,7 @@
 		"pino": "8.19.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.6.3",
+		"@biomejs/biome": "1.6.4",
 		"@types/cors": "2.8.17",
 		"@types/express": "4.17.21",
 		"@types/jsend": "1.0.32",

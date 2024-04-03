@@ -1,4 +1,10 @@
-import { NextFunction, Request, Response, Router } from "express";
+import {
+	type NextFunction,
+	type Request,
+	type Response,
+	Router,
+} from "express";
+
 import { Todo } from "../../models/todo";
 
 // Define interfaces for request bodies and parameters
