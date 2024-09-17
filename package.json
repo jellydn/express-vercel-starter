@@ -25,7 +25,7 @@
 		"@types/cors": "2.8.17",
 		"@types/express": "4.17.21",
 		"@types/jsend": "1.0.32",
-		"tsup": "8.2.4",
+		"tsup": "8.3.0",
 		"tsx": "4.19.1",
 		"typescript": "5.6.2"
 	}
