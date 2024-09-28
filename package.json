@@ -16,7 +16,7 @@
 	"dependencies": {
 		"cors": "2.8.5",
 		"express": "5.0.0",
-		"helmet": "7.1.0",
+		"helmet": "7.2.0",
 		"jsend": "1.1.0",
 		"pino": "9.4.0"
 	},
