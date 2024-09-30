@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: 1.0.0
-  title: ExpressJs API Example
+  title: Express v5 API Example
   description: A simple API
   contact:
     name: Dung Huynh
@@ -42,7 +42,7 @@ paths:
                     type: string
                     example: Created the todo.
                   createdTodo:
-                    $ref: '#/components/schemas/Todo'
+                    $ref: "#/components/schemas/Todo"
     get:
       summary: Get all todos
       responses:
@@ -56,8 +56,29 @@ paths:
                   todos:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Todo'
+                      $ref: "#/components/schemas/Todo"
   /api/todo/{id}:
+    get:
+      summary: Get a todo
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Todo retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Todo retrieved successfully
+                  todo:
+                    $ref: "#/components/schemas/Todo"
     patch:
       summary: Update a todo
       parameters:
@@ -89,7 +110,7 @@ paths:
                     type: string
                     example: Updated!
                   updatedTodo:
-                    $ref: '#/components/schemas/Todo'
+                    $ref: "#/components/schemas/Todo"
     put:
       summary: Update a todo
       parameters:
@@ -121,7 +142,7 @@ paths:
                     type: string
                     example: Updated!
                   updatedTodo:
-                    $ref: '#/components/schemas/Todo'
+                    $ref: "#/components/schemas/Todo"
     delete:
       summary: Delete a todo
       parameters:

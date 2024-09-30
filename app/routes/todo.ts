@@ -1,9 +1,4 @@
-import {
-	type NextFunction,
-	type Request,
-	type Response,
-	Router,
-} from "express";
+import { type Request, type Response, Router } from "express";
 
 import { Todo } from "../../models/todo";
 
@@ -12,13 +7,23 @@ interface TodoBody {
 	text: string;
 }
 
-interface TodoParams {
-	id: string;
-}
-
 const router = Router();
 
-let todos: Todo[] = [];
+const generateUUID = () => {
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
+		const r = (Math.random() * 16) | 0;
+		const v = c === "x" ? r : (r & 0x3) | 0x8;
+		return v.toString(16);
+	});
+};
+
+const todoItems: Todo[] = [
+	{
+		id: generateUUID(),
+		text: "Deploy Express v5 to Vercel",
+		completed: false,
+	},
+];
 
 router.post(
 	"/",
@@ -32,11 +37,16 @@ router.post(
 			TodoBody
 		>,
 		res: Response,
-		_next: NextFunction,
 	) => {
 		const { text } = req.body;
-		const newTodo = new Todo(Math.random().toString(), text);
-		todos.push(newTodo);
+
+		if (!text) {
+			res.status(400).jsend.error("Text is required");
+			return;
+		}
+
+		const newTodo = new Todo(generateUUID(), text);
+		todoItems.push(newTodo);
 
 		res
 			.status(201)
@@ -45,73 +55,76 @@ router.post(
 );
 
 router.get("/", (_req, res, _next) => {
-	res.jsend.success({ todos: todos });
+	res.jsend.success({ items: todoItems });
 });
 
-router.patch("/:id", (req: Request<TodoParams>, res: Response, _next) => {
-	const todoId = req.params.id;
-	const updatedText = (req.body as { text: string }).text;
+router.get("/:id", (req, res) => {
+	const { id } = req.params;
+	const todo = todoItems.find((item) => item.id === id);
 
-	const todoIndex = todos.findIndex((todo) => todo.id === todoId);
-
-	if (todoIndex < 0) {
-		res.jsend.error({ message: "Could not find todo!", code: 500 });
+	if (!todo) {
+		res.status(404).jsend.error("Todo not found");
 		return;
 	}
 
-	todos[todoIndex] = new Todo(
-		todos[todoIndex].id,
-		updatedText,
-		todos[todoIndex].completed,
-	);
-	res.jsend.success({ message: "Updated!", updatedTodo: todos[todoIndex] });
+	res.jsend.success(todo);
 });
 
-router.put("/:id", (req: Request<TodoParams>, res: Response, _next) => {
-	const todoId = req.params.id;
-	const updatedText = (req.body as { text: string }).text;
-	const todoIndex = todos.findIndex((todo) => todo.id === todoId);
+router.put("/:id", (req, res) => {
+	const { id } = req.params;
+	const { text, completed } = req.body;
 
-	if (todoIndex < 0) {
-		res.jsend.error({ message: "Could not find todo!", code: 500 });
+	const todo = todoItems.find((item) => item.id === id);
+
+	if (!todo) {
+		res.status(404).jsend.error("Todo not found");
 		return;
 	}
 
-	todos[todoIndex] = new Todo(
-		todos[todoIndex].id,
-		updatedText,
-		todos[todoIndex].completed,
-	);
-	res.jsend.success({ message: "Updated!", updatedTodo: todos[todoIndex] });
+	if (text) {
+		todo.text = text;
+	}
+
+	if (completed !== undefined) {
+		todo.completed = completed;
+	}
+
+	res.jsend.success(todo);
 });
 
-router.delete("/:id", (req: Request<TodoParams>, res: Response, _next) => {
-	const todoId = req.params.id;
-	todos = todos.filter((todo) => todo.id !== todoId);
-	res.jsend.success({ message: "Todo deleted!" });
+router.delete("/:id", (req, res) => {
+	const { id } = req.params;
+	const index = todoItems.findIndex((item) => item.id === id);
+
+	if (index === -1) {
+		res.status(404).jsend.error("Todo not found");
+		return;
+	}
+
+	todoItems.splice(index, 1);
+	res.jsend.success({ message: "Todo deleted." });
 });
 
-router.post(
-	"/:id/complete",
-	(req: Request<TodoParams>, res: Response, _next) => {
-		const todoId = req.params.id;
-		const todoIndex = todos.findIndex((todo) => todo.id === todoId);
+router.patch("/:id", (req, res) => {
+	const { id } = req.params;
+	const { text, completed } = req.body;
 
-		if (todoIndex < 0) {
-			res.jsend.error({ message: "Could not find todo!", code: 500 });
-			return;
-		}
+	const todo = todoItems.find((item) => item.id === id);
 
-		todos[todoIndex] = new Todo(
-			todos[todoIndex].id,
-			todos[todoIndex].text,
-			true,
-		);
-		res.jsend.success({
-			message: "Completed the todo!",
-			completedTodo: todos[todoIndex],
-		});
-	},
-);
+	if (!todo) {
+		res.status(404).jsend.error("Todo not found");
+		return;
+	}
+
+	if (text) {
+		todo.text = text;
+	}
+
+	if (completed !== undefined) {
+		todo.completed = completed;
+	}
+
+	res.jsend.success(todo);
+});
 
 export default router;
