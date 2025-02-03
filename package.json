@@ -29,12 +29,12 @@
 		"@types/express": "5.0.0",
 		"@types/jsend": "1.0.32",
 		"@types/supertest": "6.0.2",
-		"@vitest/coverage-v8": "2.1.8",
-		"@vitest/ui": "2.1.8",
+		"@vitest/coverage-v8": "2.1.9",
+		"@vitest/ui": "2.1.9",
 		"supertest": "7.0.0",
 		"tsup": "8.3.6",
 		"tsx": "4.19.2",
 		"typescript": "5.7.3",
-		"vitest": "2.1.8"
+		"vitest": "2.1.9"
 	}
 }
