@@ -21,7 +21,7 @@
 		"express": "5.1.0",
 		"helmet": "8.1.0",
 		"jsend": "1.1.0",
-		"pino": "9.6.0"
+		"pino": "9.7.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
