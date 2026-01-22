@@ -17,7 +17,7 @@
 		"vercel-build": "tsup app --clean --format cjs --env.NODE_ENV production --env.DEPLOYMENT_ENV vercel --out-dir api"
 	},
 	"dependencies": {
-		"cors": "2.8.5",
+		"cors": "2.8.6",
 		"express": "5.2.1",
 		"helmet": "8.1.0",
 		"jsend": "1.1.0",
