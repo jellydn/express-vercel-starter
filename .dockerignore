@@ -1,0 +1,9 @@
+.git
+.github
+.vscode
+node_modules
+dist
+api
+.vercel
+*.md
+*.test.ts
