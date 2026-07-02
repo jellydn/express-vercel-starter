@@ -12,7 +12,7 @@ COPY . .
 RUN bun run build
 
 # Stage 2: Production
-FROM node:22.23.1-alpine AS runner
+FROM node:24.18.0-alpine AS runner
 
 WORKDIR /app
 
