@@ -67,7 +67,23 @@ bun run build
 
 - Install [Vercel CLI](https://vercel.com/download)
 
-### Steps
+### Deploy with Dockerfile (recommended)
+
+Vercel supports deploying applications via a `Dockerfile`. This project includes a multi-stage `Dockerfile` that builds the TypeScript source with [Bun](https://bun.sh) and runs the compiled output in a lean Node.js 22 Alpine image.
+
+1.  Push your code to GitHub/GitLab/Bitbucket.
+2.  Import the repository in the [Vercel Dashboard](https://vercel.com/new).
+3.  Vercel will automatically detect the `Dockerfile` and use it to build and deploy the app.
+4.  Your project will be live at the URL provided by Vercel.
+
+To run the Docker image locally:
+
+```sh
+docker build -t express-vercel-starter .
+docker run -p 3000:3000 express-vercel-starter
+```
+
+### Deploy as Serverless Functions
 
 1.  Click on the "Deploy with Vercel" button on your project's repository page.
 2.  If prompted, log in to your Vercel account or create a new account.
@@ -81,6 +97,7 @@ bun run build
 
 ## Useful links
 
+- [Dockerfile on Vercel – Vercel Blog](https://vercel.com/blog/dockerfile-on-vercel)
 - [Using Express.js with Vercel – Vercel Docs](https://vercel.com/guides/using-express-with-vercel)
 - [Express 5.x - API Reference](https://expressjs.com/en/5x/api.html)
 - [Vercel documentation](https://vercel.com/docs)
