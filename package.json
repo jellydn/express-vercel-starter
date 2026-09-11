@@ -24,7 +24,7 @@
 		"pino": "10.3.1"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.5.13",
 		"@types/cors": "2.8.19",
 		"@types/express": "5.0.6",
 		"@types/jsend": "1.0.33",
